@@ -2,14 +2,13 @@ pipeline {
     agent any
     environment {
         VPS_IP = credentials('vps-ip')
-        VPS_USER = credentials('vps-user')
     }
     stages {
         stage('Setup Infrastructure') {
             steps {
-                sshagent(['vps-ssh-key']) {
+                withCredentials([usernamePassword(credentialsId: 'vps-credentials', usernameVariable: 'VPS_USER', passwordVariable: 'VPS_PASS')]) {
                     sh """
-                        ssh -o StrictHostKeyChecking=no ${VPS_USER}@${VPS_IP} '
+                        sshpass -p \$VPS_PASS ssh -o StrictHostKeyChecking=no ${VPS_USER}@${VPS_IP} '
                             # Update and install Docker
                             sudo apt-get update
                             sudo apt-get install -y docker.io docker-compose

@@ -11,7 +11,7 @@ These secrets should be added to your GitHub Repository settings under **Secrets
 | `DOCKERHUB_TOKEN` | Your DockerHub access token (or password). | `dckr_pat_...` |
 | `VPS_IP` | The IP address of your VPS. | `192.168.1.100` |
 | `VPS_USER` | The SSH username for your VPS. | `root` or `ubuntu` |
-| `VPS_SSH_KEY` | The private SSH key to access your VPS. | `-----BEGIN OPENSSH PRIVATE KEY-----...` |
+| `VPS_PASSWORD` | The password to access your VPS. | `mypassword123` |
 
 ## Application Environment Variables
 These variables are used by the application (Frontend/Backend) and can be defined in `.env` files or Docker Compose.

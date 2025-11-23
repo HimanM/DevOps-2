@@ -2,15 +2,17 @@ pipeline {
     agent any
     environment {
         VPS_IP = credentials('vps-ip')
-        VPS_USER = credentials('vps-user')
         DOCKERHUB_USERNAME = credentials('dockerhub-username')
     }
     stages {
         stage('Deploy to VPS') {
             steps {
-                sshagent(['vps-ssh-key']) {
+                withCredentials([usernamePassword(credentialsId: 'vps-credentials', usernameVariable: 'VPS_USER', passwordVariable: 'VPS_PASS')]) {
                     sh """
-                        ssh -o StrictHostKeyChecking=no ${VPS_USER}@${VPS_IP} '
+                        # Install sshpass if not installed (optional check, better to have it pre-installed)
+                        # export SSHPASS=\$VPS_PASS
+                        
+                        sshpass -p \$VPS_PASS ssh -o StrictHostKeyChecking=no ${VPS_USER}@${VPS_IP} '
                             # Create directory if not exists
                             mkdir -p ~/devops-project
                             cd ~/devops-project
