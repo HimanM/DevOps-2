@@ -8,7 +8,7 @@ These secrets should be added to your GitHub Repository settings under **Secrets
 | Secret Name | Description | Example Value |
 | :--- | :--- | :--- |
 | `DOCKERHUB_USERNAME` | Your DockerHub username. | `johndoe` |
-| `DOCKERHUB_TOKEN` | Your DockerHub access token (or password). | `dckr_pat_...` |
+| `DOCKERHUB_TOKEN` | Your DockerHub access token (must have **Read & Write** permissions). | `dckr_pat_...` |
 | `VPS_IP` | The IP address of your VPS. | `192.168.1.100` |
 | `VPS_USER` | The SSH username for your VPS. | `root` or `ubuntu` |
 | `VPS_PASSWORD` | The password to access your VPS. | `mypassword123` |

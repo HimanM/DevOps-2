@@ -58,6 +58,7 @@ Go to **Manage Jenkins > Credentials > System > Global credentials**.
 - **Kind**: Username with password
 - **ID**: `dockerhub-username`
 - **Description**: DockerHub Credentials
+> **Note**: If using a Docker Hub Access Token as the password, ensure it has **Read & Write** permissions.
 
 ### VPS Credentials (For Deployment)
 - **Kind**: Username with password

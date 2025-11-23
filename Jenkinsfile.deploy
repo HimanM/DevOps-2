@@ -16,7 +16,7 @@ pipeline {
                 }
                 withCredentials([usernamePassword(credentialsId: 'vps-credentials', usernameVariable: 'VPS_USER', passwordVariable: 'VPS_PASS')]) {
                     sh """
-                        sshpass -p \$VPS_PASS ssh -o StrictHostKeyChecking=no ${VPS_USER}@${VPS_IP} '
+                        sshpass -p \$VPS_PASS ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${VPS_USER}@${VPS_IP} '
                             mkdir -p ~/devops-project
                             cd ~/devops-project
                             echo "DOCKERHUB_USERNAME=${DOCKERHUB_USERNAME}" > .env
