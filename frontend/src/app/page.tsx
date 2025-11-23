@@ -32,7 +32,7 @@ export default function Home() {
             <BackendStatus />
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-16">
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
             <a
               href="https://github.com/HimanM/DevOps-Project-2"
               target="_blank"
@@ -46,6 +46,38 @@ export default function Home() {
               className="px-8 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors flex items-center gap-2"
             >
               <FaJenkins className="text-xl" /> Setup Guide
+            </a>
+          </div>
+
+          {/* Docker Hub Links */}
+          <div className="flex flex-wrap justify-center gap-4 mb-16">
+            <a
+              href="https://hub.docker.com/r/himanm/devops-project-2-frontend"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group px-6 py-2.5 rounded-lg border border-gray-700 bg-gray-900/50 hover:bg-gray-800/80 transition-all flex items-center gap-3"
+            >
+              <FaDocker className="text-xl text-blue-400" />
+              <div className="text-left">
+                <div className="text-xs text-gray-500">Frontend Image</div>
+                <div className="text-sm font-mono text-gray-300 group-hover:text-white transition-colors">
+                  himanm/devops-project-2-frontend
+                </div>
+              </div>
+            </a>
+            <a
+              href="https://hub.docker.com/r/himanm/devops-project-2-backend"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group px-6 py-2.5 rounded-lg border border-gray-700 bg-gray-900/50 hover:bg-gray-800/80 transition-all flex items-center gap-3"
+            >
+              <FaDocker className="text-xl text-blue-400" />
+              <div className="text-left">
+                <div className="text-xs text-gray-500">Backend Image</div>
+                <div className="text-sm font-mono text-gray-300 group-hover:text-white transition-colors">
+                  himanm/devops-project-2-backend
+                </div>
+              </div>
             </a>
           </div>
 
