@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import TerminalBlock from "./TerminalBlock";
 import { FaJava, FaJenkins, FaKey, FaCogs, FaPlay } from "react-icons/fa";
-import Image from "next/image";
+import MagnifiedImage from "./MagnifiedImage";
 
 const tabs = [
     { id: "install", label: "1. Installation", icon: <FaJava /> },
@@ -148,12 +148,13 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword`}
                         </p>
 
                         <div className="rounded-xl overflow-hidden border border-gray-800 shadow-2xl mb-6">
-                            <Image
+                            <MagnifiedImage
                                 src="/images/jenkins_credentials.png"
                                 alt="Jenkins Credentials Configuration"
                                 width={800}
                                 height={400}
                                 className="w-full opacity-90"
+                                unoptimized
                             />
                         </div>
 
@@ -206,7 +207,14 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword`}
                                 <li><strong>Repo URL:</strong> <code>https://github.com/HimanM/DevOps-Project-2.git</code></li>
                             </ul>
                             <div className="rounded-xl overflow-hidden border border-gray-800">
-                                <Image src="/images/jenkins_config.png" alt="CI Config" width={800} height={400} className="w-full" />
+                                <MagnifiedImage
+                                    src="/images/jenkins_config.png"
+                                    alt="CI Config"
+                                    width={800}
+                                    height={400}
+                                    className="w-full"
+                                    unoptimized
+                                />
                             </div>
                         </div>
 
@@ -221,7 +229,14 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword`}
                                 <li><strong>Trigger:</strong> Build after other projects are built (DevOps-CI)</li>
                             </ul>
                             <div className="rounded-xl overflow-hidden border border-gray-800">
-                                <Image src="/images/jenkins_cd_config.png" alt="CD Config" width={800} height={400} className="w-full" />
+                                <MagnifiedImage
+                                    src="/images/jenkins_cd_config.png"
+                                    alt="CD Config"
+                                    width={800}
+                                    height={400}
+                                    className="w-full"
+                                    unoptimized
+                                />
                             </div>
                         </div>
 
@@ -235,7 +250,14 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword`}
                                 <li><strong>Script Path:</strong> <code>Jenkinsfile.initdomain</code></li>
                             </ul>
                             <div className="rounded-xl overflow-hidden border border-gray-800">
-                                <Image src="/images/jenkins_infra_config.png" alt="Infra Config" width={800} height={400} className="w-full" />
+                                <MagnifiedImage
+                                    src="/images/jenkins_infra_config.png"
+                                    alt="Infra Config"
+                                    width={800}
+                                    height={400}
+                                    className="w-full"
+                                    unoptimized
+                                />
                             </div>
                         </div>
                     </div>
@@ -249,33 +271,69 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword`}
                         </p>
 
                         <div className="space-y-3 sm:space-y-4">
-                            <div className="flex gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-gray-900/50 border border-gray-800">
-                                <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-sm sm:text-base">1</div>
-                                <div>
-                                    <h4 className="text-sm sm:text-base font-bold text-white">Run DevOps-InitDomain</h4>
-                                    <p className="text-xs sm:text-sm text-gray-400">
-                                        Manually build this job first. It installs Ansible, configures Nginx, and sets up SSL for your domain.
-                                    </p>
+                            <div className="flex flex-col gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-gray-900/50 border border-gray-800">
+                                <div className="flex gap-3 sm:gap-4">
+                                    <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-sm sm:text-base">1</div>
+                                    <div>
+                                        <h4 className="text-sm sm:text-base font-bold text-white">Run DevOps-InitDomain</h4>
+                                        <p className="text-xs sm:text-sm text-gray-400">
+                                            Manually build this job first. It installs Ansible, configures Nginx, and sets up SSL for your domain.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="rounded-lg overflow-hidden border border-gray-800 mt-2">
+                                    <MagnifiedImage
+                                        src="/images/jenkins_infra_pipeline.png"
+                                        alt="Infra Pipeline"
+                                        width={800}
+                                        height={400}
+                                        className="w-full"
+                                        unoptimized
+                                    />
                                 </div>
                             </div>
 
-                            <div className="flex gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-gray-900/50 border border-gray-800">
-                                <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-sm sm:text-base">2</div>
-                                <div>
-                                    <h4 className="text-sm sm:text-base font-bold text-white">Run DevOps-CI</h4>
-                                    <p className="text-xs sm:text-sm text-gray-400">
-                                        Trigger this job (or push to GitHub). It will build the app, run tests, and push images.
-                                    </p>
+                            <div className="flex flex-col gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-gray-900/50 border border-gray-800">
+                                <div className="flex gap-3 sm:gap-4">
+                                    <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-sm sm:text-base">2</div>
+                                    <div>
+                                        <h4 className="text-sm sm:text-base font-bold text-white">Run DevOps-CI</h4>
+                                        <p className="text-xs sm:text-sm text-gray-400">
+                                            Trigger this job (or push to GitHub). It will build the app, run tests, and push images.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="rounded-lg overflow-hidden border border-gray-800 mt-2">
+                                    <MagnifiedImage
+                                        src="/images/jenkins_pipeline_stage_view.png"
+                                        alt="CI Pipeline Stage View"
+                                        width={800}
+                                        height={400}
+                                        className="w-full"
+                                        unoptimized
+                                    />
                                 </div>
                             </div>
 
-                            <div className="flex gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-gray-900/50 border border-gray-800">
-                                <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center font-bold text-sm sm:text-base">3</div>
-                                <div>
-                                    <h4 className="text-sm sm:text-base font-bold text-white">Automatic Deployment</h4>
-                                    <p className="text-xs sm:text-sm text-gray-400">
-                                        Upon success of CI, <strong>DevOps-CD</strong> will automatically trigger and deploy the new version to your VPS.
-                                    </p>
+                            <div className="flex flex-col gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-gray-900/50 border border-gray-800">
+                                <div className="flex gap-3 sm:gap-4">
+                                    <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center font-bold text-sm sm:text-base">3</div>
+                                    <div>
+                                        <h4 className="text-sm sm:text-base font-bold text-white">Automatic Deployment</h4>
+                                        <p className="text-xs sm:text-sm text-gray-400">
+                                            Upon success of CI, <strong>DevOps-CD</strong> will automatically trigger and deploy the new version to your VPS.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="rounded-lg overflow-hidden border border-gray-800 mt-2">
+                                    <MagnifiedImage
+                                        src="/images/jenkins_cd_pipeline.png"
+                                        alt="CD Pipeline"
+                                        width={800}
+                                        height={400}
+                                        className="w-full"
+                                        unoptimized
+                                    />
                                 </div>
                             </div>
                         </div>
