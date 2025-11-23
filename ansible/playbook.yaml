@@ -13,18 +13,10 @@
     - name: Install required packages
       apt:
         name:
-          - docker.io
-          - docker-compose
           - nginx
           - certbot
           - python3-certbot-nginx
         state: present
-
-    - name: Start and enable Docker
-      service:
-        name: docker
-        state: started
-        enabled: yes
 
     - name: Start and enable Nginx
       service:
