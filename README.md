@@ -32,7 +32,7 @@ A complete DevOps project with Next.js Frontend, Python Backend, Docker, Jenkins
 
 2.  **Run with Docker Compose**:
     ```bash
-    docker-compose up --build
+    docker compose up --build
     ```
     - Frontend: `http://localhost:3000`
     - Backend API: `http://localhost:3000/api/data` (Proxied)
