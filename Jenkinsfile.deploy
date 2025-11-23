@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'ubuntu:latest'
+        }
+    }
     environment {
         VPS_IP = credentials('vps-ip')
         DOCKERHUB_USERNAME = credentials('dockerhub-username')
@@ -7,23 +11,15 @@ pipeline {
     stages {
         stage('Deploy to VPS') {
             steps {
+                script {
+                    sh 'apt-get update && apt-get install -y sshpass openssh-client'
+                }
                 withCredentials([usernamePassword(credentialsId: 'vps-credentials', usernameVariable: 'VPS_USER', passwordVariable: 'VPS_PASS')]) {
                     sh """
-                        # Install sshpass if not installed (optional check, better to have it pre-installed)
-                        # export SSHPASS=\$VPS_PASS
-                        
                         sshpass -p \$VPS_PASS ssh -o StrictHostKeyChecking=no ${VPS_USER}@${VPS_IP} '
-                            # Create directory if not exists
                             mkdir -p ~/devops-project
                             cd ~/devops-project
-                            
-                            # Ensure we have the latest docker-compose.yml
-                            # Assuming the repo is cloned here. If not, you might need to scp it.
-                            # git pull origin main 
-                            
-                            # Create .env file for docker-compose variables
                             echo "DOCKERHUB_USERNAME=${DOCKERHUB_USERNAME}" > .env
-                            
                             docker-compose pull
                             docker-compose up -d
                         '
