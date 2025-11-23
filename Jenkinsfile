@@ -32,8 +32,8 @@ pipeline {
         stage('Build Docker Images') {
             steps {
                 script {
-                    sh 'docker build -t $DOCKER_CRED_USR/devops-frontend:$IMAGE_TAG ./frontend'
-                    sh 'docker build -t $DOCKER_CRED_USR/devops-backend:$IMAGE_TAG ./backend'
+                    sh 'docker build -t $DOCKER_CRED_USR/devops-project-2-frontend:$IMAGE_TAG ./frontend'
+                    sh 'docker build -t $DOCKER_CRED_USR/devops-project-2-backend:$IMAGE_TAG ./backend'
                 }
             }
         }
@@ -41,8 +41,8 @@ pipeline {
             steps {
                 script {
                     sh 'echo $DOCKER_CRED_PSW | docker login -u $DOCKER_CRED_USR --password-stdin'
-                    sh 'docker push $DOCKER_CRED_USR/devops-frontend:$IMAGE_TAG'
-                    sh 'docker push $DOCKER_CRED_USR/devops-backend:$IMAGE_TAG'
+                    sh 'docker push $DOCKER_CRED_USR/devops-project-2-frontend:$IMAGE_TAG'
+                    sh 'docker push $DOCKER_CRED_USR/devops-project-2-backend:$IMAGE_TAG'
                 }
             }
         }

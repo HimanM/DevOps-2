@@ -1,7 +1,7 @@
 services:
-  frontend:
+  devops-project-2-frontend:
     build: ./frontend
-    image: ${DOCKERHUB_USERNAME}/devops-frontend:latest
+    image: ${DOCKERHUB_USERNAME}/devops-project-2-frontend:latest
     ports:
       - "57002:3000"
     networks:
@@ -11,9 +11,9 @@ services:
     depends_on:
       - backend
 
-  backend:
+  devops-project-2-backend:
     build: ./backend
-    image: ${DOCKERHUB_USERNAME}/devops-backend:latest
+    image: ${DOCKERHUB_USERNAME}/devops-project-2-backend:latest
     expose:
       - "5000"
     networks:
