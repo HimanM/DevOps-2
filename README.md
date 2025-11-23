@@ -1,12 +1,3 @@
-# DevOps Project
-
-A complete DevOps project with Next.js Frontend, Python Backend, Docker, Jenkins CI/CD, and Prometheus/Grafana Monitoring.
-
-## Tech Stack
-- **Frontend**: Next.js, Tailwind CSS, Shadcn UI
-- **Backend**: Python (Flask)
-- **Database/Infra**: Docker, Docker Compose
-- **CI/CD**: Jenkins
 - **Monitoring**: Prometheus, Grafana
 
 ## Project Structure

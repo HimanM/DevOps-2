@@ -39,7 +39,7 @@
       notify: Restart Nginx
 
     - name: Obtain SSL certificate
-      command: certbot --nginx -d {{ domain_name }} -d www.{{ domain_name }} --non-interactive --agree-tos -m admin@{{ domain_name }}
+      command: certbot --nginx -d {{ domain_name }} --non-interactive --agree-tos -m admin@{{ domain_name }}
       ignore_errors: yes
 
   handlers:

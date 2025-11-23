@@ -78,4 +78,14 @@ Go to **Manage Jenkins > Credentials > System > Global credentials**.
 2.  **Definition**: Pipeline script from SCM.
 3.  **SCM**: Git.
 4.  **Repository URL**: Your GitHub Repo URL.
-5.  **Script Path**: `Jenkinsfile` (for CI) or `Jenkinsfile.deploy` (for CD).
+5.  **Script Path**:
+    *   **DevOps-CI**: `Jenkinsfile`
+    *   **DevOps-CD**: `Jenkinsfile.deploy`
+    *   **DevOps-InitDomain**: `Jenkinsfile.initdomain`
+
+## 7. Configure Additional Secrets
+Go to **Manage Jenkins > Credentials**.
+*   **Kind**: Secret text
+*   **ID**: `DEVOPS2_DOMAIN`
+*   **Secret**: Your domain name (e.g., `example.com`)
+*   **Description**: Domain name for Nginx configuration
