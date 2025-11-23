@@ -56,7 +56,29 @@ java -version`}
                             </div>
 
                             <div>
-                                <h4 className="text-lg font-semibold text-blue-400 mb-2">Step 2: Install Jenkins</h4>
+                                <h4 className="text-lg font-semibold text-blue-400 mb-2">Step 2: Install Node.js & npm</h4>
+                                <p className="text-sm text-gray-500 mb-2">Required for frontend linting in CI pipeline.</p>
+                                <TerminalBlock title="Install Node.js">
+                                    {`curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt-get install -y nodejs
+node -v && npm -v`}
+                                </TerminalBlock>
+                            </div>
+                        </div>
+
+                        <div className="grid md:grid-cols-2 gap-8 mt-8">
+                            <div>
+                                <h4 className="text-lg font-semibold text-blue-400 mb-2">Step 3: Install Python & pip</h4>
+                                <p className="text-sm text-gray-500 mb-2">Required for backend testing in CI pipeline.</p>
+                                <TerminalBlock title="Install Python">
+                                    {`sudo apt install python3 python3-pip -y
+python3 --version
+pip3 --version`}
+                                </TerminalBlock>
+                            </div>
+
+                            <div>
+                                <h4 className="text-lg font-semibold text-blue-400 mb-2">Step 4: Install Jenkins</h4>
                                 <p className="text-sm text-gray-500 mb-2">Add the repo and install the package.</p>
                                 <TerminalBlock title="Install Jenkins">
                                     {`sudo wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
@@ -68,7 +90,7 @@ sudo apt-get install jenkins`}
                         </div>
 
                         <div className="mt-6">
-                            <h4 className="text-lg font-semibold text-blue-400 mb-2">Step 3: Start & Unlock</h4>
+                            <h4 className="text-lg font-semibold text-blue-400 mb-2">Step 5: Start & Unlock</h4>
                             <p className="text-sm text-gray-500 mb-2">
                                 Start the service and retrieve the initial admin password to unlock the dashboard at <code>http://your-ip:8080</code>.
                             </p>

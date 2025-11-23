@@ -179,7 +179,28 @@ sudo apt install fontconfig openjdk-17-jre
 java -version
 ```
 
-#### Step 2: Add Jenkins Repository
+#### Step 2: Install Node.js and npm
+
+Required for frontend linting in the CI pipeline.
+
+```bash
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt-get install -y nodejs
+node -v
+npm -v
+```
+
+#### Step 3: Install Python and pip
+
+Required for backend testing in the CI pipeline.
+
+```bash
+sudo apt install python3 python3-pip -y
+python3 --version
+pip3 --version
+```
+
+#### Step 4: Add Jenkins Repository
 
 ```bash
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
@@ -190,14 +211,14 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
 ```
 
-#### Step 3: Install Jenkins
+#### Step 5: Install Jenkins
 
 ```bash
 sudo apt-get update
 sudo apt-get install jenkins
 ```
 
-#### Step 4: Start Jenkins Service
+#### Step 6: Start Jenkins Service
 
 ```bash
 sudo systemctl enable jenkins
@@ -205,7 +226,7 @@ sudo systemctl start jenkins
 sudo systemctl status jenkins
 ```
 
-#### Step 5: Unlock Jenkins
+#### Step 7: Unlock Jenkins
 
 Retrieve the initial admin password:
 
