@@ -28,7 +28,7 @@ pipeline {
             steps {
                 echo 'Running tests...'
                 sh 'pip install --break-system-packages pytest flask prometheus_client werkzeug'
-                sh 'cd backend && pytest'
+                sh 'cd backend && /var/lib/jenkins/.local/bin/pytest'
             }
         }
         stage('Build Docker Images') {
