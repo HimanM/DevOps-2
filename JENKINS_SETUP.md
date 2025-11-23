@@ -33,8 +33,23 @@ The pipeline builds Docker images and deploys via SSH using password.
 ```bash
 sudo apt-get update
 sudo apt-get install ca-certificates curl gnupg sshpass
-# ... (Docker installation steps remain the same)
+# Install Docker (Standard Docker installation)
+sudo apt-get install docker.io docker-compose
 ```
+
+### Important: Grant Jenkins Docker Permissions
+To allow Jenkins to build Docker images, you must add the `jenkins` user to the `docker` group:
+```bash
+sudo usermod -aG docker jenkins
+sudo systemctl restart jenkins
+```
+
+## 4. Install Required Plugins
+1. Go to **Manage Jenkins > Plugins > Available plugins**.
+2. Search for and install:
+   - **Docker**
+   - **Docker Pipeline**
+3. Restart Jenkins after installation.
 
 ## 5. Set up Credentials
 Go to **Manage Jenkins > Credentials > System > Global credentials**.
